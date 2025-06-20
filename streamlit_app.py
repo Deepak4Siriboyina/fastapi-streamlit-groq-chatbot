@@ -18,13 +18,15 @@ with st.form("chat_form", clear_on_submit=True):
 
 if submitted and user_input:
     try:
+        # ⛳ Replace with your actual Render backend URL
+        api_url = "https://fastapi-streamlit-groq-chatbot.onrender.com/"
         
         response = requests.post(
-            "http://127.0.0.1:8000/chat/",
+            api_url,
             json={
                 "message": user_input,
                 "history": st.session_state.chat_history
-                 }    
+            }
         )
         if response.status_code == 200:
             bot_reply = response.json()["response"]
@@ -59,5 +61,3 @@ if st.session_state.chat_history:
         file_name=filename,
         mime="text/plain"
     )
-
-
