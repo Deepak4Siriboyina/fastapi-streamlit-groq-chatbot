@@ -19,7 +19,7 @@ with st.form("chat_form", clear_on_submit=True):
 if submitted and user_input:
     try:
         # ⛳ Replace with your actual Render backend URL
-        api_url = "https://fastapi-streamlit-groq-chatbot.onrender.com/"
+        api_url = "https://fastapi-streamlit-groq-chatbot.onrender.com/chat/"
         
         response = requests.post(
             api_url,
