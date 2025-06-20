@@ -32,6 +32,10 @@ def clean_bot_response(response: str) -> str:
     MAX_CHARS = 300
     return cleaned[:MAX_CHARS] if cleaned else "I'm not sure how to answer that."
 
+@app.get("/")
+def root():
+    return {"message": "✅ FastAPI backend is running. Use POST /chat/ to interact with the chatbot."}
+
 @app.post("/chat/")
 def chat(req: ChatRequest):
     try:
